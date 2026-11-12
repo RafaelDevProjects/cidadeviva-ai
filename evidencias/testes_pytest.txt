@@ -1,0 +1,62 @@
+# Execução da suíte de testes — 2026-11-12 10:31
+# Python 3.13.18 | sem rede, LLM simulado (mocks)
+# test_api.py pulado neste ambiente por falta de fastapi/httpx; roda após pip install -r requirements.txt
+
+============================= test session starts ==============================
+platform linux -- Python 3.13.18, pytest-9.1.1, pluggy-1.6.0 -- /usr/local/bin/python3
+cachedir: .pytest_cache
+rootdir: /home/claude/cidadeviva-ai
+plugins: platformdirs-4.13.5, anyio-4.15.1
+collecting ... collected 49 items / 1 skipped
+
+tests/test_json_utils.py::test_json_puro PASSED                          [  2%]
+tests/test_json_utils.py::test_json_em_bloco_de_codigo PASSED            [  4%]
+tests/test_json_utils.py::test_texto_antes_e_depois_sem_fence PASSED     [  6%]
+tests/test_json_utils.py::test_virgula_sobrando PASSED                   [  8%]
+tests/test_json_utils.py::test_chaves_dentro_de_string PASSED            [ 10%]
+tests/test_json_utils.py::test_objeto_aninhado PASSED                    [ 12%]
+tests/test_json_utils.py::test_falhas[] PASSED                           [ 14%]
+tests/test_json_utils.py::test_falhas[   ] PASSED                        [ 16%]
+tests/test_json_utils.py::test_falhas[sem json aqui] PASSED              [ 18%]
+tests/test_json_utils.py::test_falhas[{quebrado: sim] PASSED             [ 20%]
+tests/test_json_utils.py::test_falhas[[1, 2, 3]] PASSED                  [ 22%]
+tests/test_knowledge.py::test_carrega_secoes PASSED                      [ 24%]
+tests/test_knowledge.py::test_recupera_secao_certa_no_top3[como reporto um buraco?-faq-03] PASSED [ 26%]
+tests/test_knowledge.py::test_recupera_secao_certa_no_top3[apareceu erro E-102-faq-07] PASSED [ 28%]
+tests/test_knowledge.py::test_recupera_secao_certa_no_top3[n\xe3o tenho internet no s\xedtio-faq-06] PASSED [ 30%]
+tests/test_knowledge.py::test_recupera_secao_certa_no_top3[a foto da conta de luz n\xe3o \xe9 reconhecida-faq-08] PASSED [ 32%]
+tests/test_knowledge.py::test_recupera_secao_certa_no_top3[quero excluir minha conta, e meus dados?-faq-09] PASSED [ 34%]
+tests/test_knowledge.py::test_recupera_secao_certa_no_top3[cadastro com conta de luz-faq-02] PASSED [ 36%]
+tests/test_knowledge.py::test_pergunta_fora_do_escopo_traz_pouco PASSED  [ 38%]
+tests/test_llm_client.py::test_sucesso_envia_modelo_e_parametros PASSED  [ 40%]
+tests/test_llm_client.py::test_retry_em_429_depois_sucesso PASSED        [ 42%]
+tests/test_llm_client.py::test_timeout_e_retry PASSED                    [ 44%]
+tests/test_llm_client.py::test_fallback_para_segundo_modelo PASSED       [ 46%]
+tests/test_llm_client.py::test_todos_modelos_falham PASSED               [ 48%]
+tests/test_llm_client.py::test_chave_invalida_nao_tenta_fallback PASSED  [ 51%]
+tests/test_llm_client.py::test_sem_api_key PASSED                        [ 53%]
+tests/test_llm_client.py::test_json_mode_nao_suportado_refaz_sem PASSED  [ 55%]
+tests/test_llm_client.py::test_erro_dentro_de_200 PASSED                 [ 57%]
+tests/test_llm_client.py::test_conteudo_vazio_conta_como_transitorio PASSED [ 59%]
+tests/test_services.py::test_triagem_feliz PASSED                        [ 61%]
+tests/test_services.py::test_prompt_tem_system_fewshot_e_delimitadores PASSED [ 63%]
+tests/test_services.py::test_reparo_quando_json_invalido PASSED          [ 65%]
+tests/test_services.py::test_reparo_quando_enum_invalido PASSED          [ 67%]
+tests/test_services.py::test_fallback_seguro_apos_reparos_esgotados PASSED [ 69%]
+tests/test_services.py::test_fallback_seguro_quando_llm_indisponivel PASSED [ 71%]
+tests/test_services.py::test_erro_de_configuracao_sobe PASSED            [ 73%]
+tests/test_services.py::test_guardrail_risco_imediato_vira_urgente PASSED [ 75%]
+tests/test_services.py::test_guardrail_baixa_confianca_pede_revisao PASSED [ 77%]
+tests/test_services.py::test_pii_mascarada_antes_de_ir_ao_modelo PASSED  [ 79%]
+tests/test_services.py::test_entrada_vazia[] PASSED                      [ 81%]
+tests/test_services.py::test_entrada_vazia[   ] PASSED                   [ 83%]
+tests/test_services.py::test_entrada_vazia[None] PASSED                  [ 85%]
+tests/test_services.py::test_entrada_longa_truncada PASSED               [ 87%]
+tests/test_services.py::test_helper_injeta_contexto_recuperado PASSED    [ 89%]
+tests/test_services.py::test_helper_remove_fontes_inventadas PASSED      [ 91%]
+tests/test_services.py::test_helper_sem_fonte_vira_baixa_confianca PASSED [ 93%]
+tests/test_services.py::test_helper_fallback_seguro PASSED               [ 95%]
+tests/test_services.py::test_helper_aceita_json_em_markdown PASSED       [ 97%]
+tests/test_services.py::test_mask_pii_conta PASSED                       [100%]
+
+======================== 49 passed, 1 skipped in 0.13s =========================

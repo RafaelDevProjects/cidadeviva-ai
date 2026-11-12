@@ -1,0 +1,34 @@
+
+=== JSON dentro de bloco markdown ===
+   ↳ modelo respondeu: 'Claro!\n```json\n{"categoria": "iluminacao_publica", "prioridade": "media", "orgao_responsav'…
+   resultado: categoria=iluminacao_publica prioridade=urgente revisao_humana=False
+   meta: reparos_json=0 fallback_seguro=False erro=None
+
+=== Texto sem JSON -> pedido de reparo ===
+   ↳ modelo respondeu: 'Desculpe, posso ajudar com isso!'
+   [log WARNING] Saída inválida (tentativa 1): nenhum objeto JSON válido encontrado
+   ↳ modelo respondeu: '{"categoria": "iluminacao_publica", "prioridade": "media", "orgao_responsavel": "Departame'…
+   resultado: categoria=iluminacao_publica prioridade=urgente revisao_humana=False
+   meta: reparos_json=1 fallback_seguro=False erro=None
+
+=== Categoria inexistente -> reparo ===
+   ↳ modelo respondeu: '{"categoria": "eletrica", "prioridade": "media", "orgao_responsavel": "Departamento de Ilu'…
+   [log WARNING] Saída inválida (tentativa 1): categoria: Input should be 'buraco_via', 'iluminacao_publica', 'lixo_entulho', 'arvore_poda', 'calcada_acessibilidade', 'agua_esgoto', 'sinalizacao_transito', 'area_rural_estrada' or 'outro'
+   ↳ modelo respondeu: '{"categoria": "iluminacao_publica", "prioridade": "media", "orgao_responsavel": "Departame'…
+   resultado: categoria=iluminacao_publica prioridade=urgente revisao_humana=False
+   meta: reparos_json=1 fallback_seguro=False erro=None
+
+=== Três respostas inválidas -> fallback seguro ===
+   ↳ modelo respondeu: 'nada'
+   [log WARNING] Saída inválida (tentativa 1): nenhum objeto JSON válido encontrado
+   ↳ modelo respondeu: 'nada'
+   [log WARNING] Saída inválida (tentativa 2): nenhum objeto JSON válido encontrado
+   ↳ modelo respondeu: 'nada'
+   [log WARNING] Saída inválida (tentativa 3): nenhum objeto JSON válido encontrado
+   resultado: categoria=outro prioridade=media revisao_humana=True
+   meta: reparos_json=2 fallback_seguro=True erro=nenhum objeto JSON válido encontrado
+
+=== Todos os modelos fora do ar -> fallback seguro ===
+   [log ERROR] Falha no LLM: Todos os modelos falharam -> HTTP 503
+   resultado: categoria=outro prioridade=media revisao_humana=True
+   meta: reparos_json=0 fallback_seguro=True erro=Todos os modelos falharam -> HTTP 503

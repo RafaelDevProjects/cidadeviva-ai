@@ -1,0 +1,42 @@
+[
+  {
+    "relato": "Tem um fio da rede elétrica caído na calçada da Rua das Flores, em frente à creche Pequeno Príncipe, Jardim Ângela. As crianças passam por ali!",
+    "saida": {
+      "categoria": "iluminacao_publica",
+      "prioridade": "urgente",
+      "orgao_responsavel": "Departamento de Iluminação Pública",
+      "resumo": "Fio da rede elétrica caído sobre a calçada em frente a uma creche, em local de passagem de crianças.",
+      "localizacao": {
+        "texto_original": "calçada da Rua das Flores, em frente à creche Pequeno Príncipe, Jardim Ângela",
+        "logradouro": "Rua das Flores",
+        "referencia": "em frente à creche Pequeno Príncipe",
+        "bairro_ou_comunidade": "Jardim Ângela"
+      },
+      "risco_imediato": true,
+      "justificativa_prioridade": "Fio elétrico exposto em calçada com circulação de crianças representa risco de choque elétrico imediato.",
+      "dados_faltantes": ["numero"],
+      "confianca": 0.93,
+      "revisao_humana": false
+    }
+  },
+  {
+    "relato": "a estrada de terra que liga o sítio boa vista até a escola rural virou lama com a chuva e o ônibus escolar não passa faz 3 dias",
+    "saida": {
+      "categoria": "area_rural_estrada",
+      "prioridade": "alta",
+      "orgao_responsavel": "Secretaria de Agricultura / Estradas Vicinais",
+      "resumo": "Estrada de terra entre o Sítio Boa Vista e a escola rural intransitável após chuvas; ônibus escolar sem passar há 3 dias.",
+      "localizacao": {
+        "texto_original": "estrada de terra que liga o sítio boa vista até a escola rural",
+        "logradouro": null,
+        "referencia": "trecho entre o Sítio Boa Vista e a escola rural",
+        "bairro_ou_comunidade": "Sítio Boa Vista"
+      },
+      "risco_imediato": false,
+      "justificativa_prioridade": "Interrompe o transporte escolar há 3 dias, afetando o acesso de alunos à educação.",
+      "dados_faltantes": ["nome da estrada", "municipio"],
+      "confianca": 0.88,
+      "revisao_humana": false
+    }
+  }
+]
